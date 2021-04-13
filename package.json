@@ -1,18 +1,18 @@
 {
-  "name": "terra-model-repo",
+  "name": "organizer",
   "version": "1.0.0",
   "description": "A model repo for how terra applications should look",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mjhenkes/terra-model-repo.git"
+    "url": "git+https://github.com/mjhenkes/organizer.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/mjhenkes/terra-model-repo/issues"
+    "url": "https://github.com/mjhenkes/organizer/issues"
   },
-  "homepage": "https://github.com/mjhenkes/terra-model-repo#readme",
+  "homepage": "https://github.com/mjhenkes/organizer#readme",
   "eslintConfig": {
     "extends": "@cerner/terra"
   },
@@ -46,7 +46,9 @@
     "react-intl": "^5.13.2",
     "terra-button": "^3.53.0",
     "terra-collapsible-menu-view": "^6.48.0",
+    "terra-hyperlink": "^2.46.0",
     "terra-icon": "^3.41.0",
+    "terra-list": "^4.45.0",
     "terra-toolbar": "^1.21.0"
   },
   "devDependencies": {
