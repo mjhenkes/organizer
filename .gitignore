@@ -126,3 +126,5 @@ errorScreenshots
 
 # webpack stats
 stats.json
+
+build
