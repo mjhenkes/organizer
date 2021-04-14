@@ -1,5 +1,6 @@
 import React from 'react';
 import IconSearch from 'terra-icon/lib/icon/IconSearch';
+import IconTile from 'terra-icon/lib/icon/IconTile';
 import Button from 'terra-button';
 
 import ApplicationModal from '@cerner/terra-application/lib/application-modal/ApplicationModal';
@@ -7,6 +8,7 @@ import { PrimaryNavigationLayout, NavigationItem } from '@cerner/terra-applicati
 import ApplicationConceptBannerProvider from '@cerner/terra-application/lib/application-container/ApplicationConceptBannerProvider';
 import ModalManager from '@cerner/terra-application/lib/modal-manager';
 import { ConceptContext } from '../providers/ConceptProvider';
+import ApplicationSwitcherModal from '../modals/_ApplicataionSwitcherModal';
 
 import Page1 from '../pages/Page1';
 import Page5 from '../pages/Page5';
@@ -27,6 +29,7 @@ const DemoApplicationNavigationLayout = () => {
   const [navigationState, setNavigationState] = React.useState('nav-A');
   const [showSearchModal, setShowSearchModal] = React.useState(false);
   const [showDetailsModal, setShowDetailsModal] = React.useState(false);
+  const [showAppSwitcherModal, setShowAppSwitcherModal] = React.useState(false);
 
   return (
     <>
@@ -38,13 +41,20 @@ const DemoApplicationNavigationLayout = () => {
         <ModalManager> */}
       <PrimaryNavigationLayout
         extensionItems={[{
-          key: 'search',
-          icon: <IconSearch />,
-          text: 'Search',
+        //   key: 'search',
+        //   icon: <IconSearch />,
+        //   text: 'Search',
+        // }, {
+          key: 'appSwitch',
+          icon: <IconTile />,
+          text: 'Application Switcher',
         }]}
         onSelectExtensionItem={(itemKey) => {
           if (itemKey === 'search') {
             setShowSearchModal(true);
+          }
+          if (itemKey === 'appSwitch') {
+            setShowAppSwitcherModal(true);
           }
         }}
         utilityItems={[{
@@ -68,8 +78,8 @@ const DemoApplicationNavigationLayout = () => {
             </div>
           </ApplicationModal>
         )}
-      </ApplicationConceptBannerProvider>
-      {showSearchModal && (
+      </ApplicationConceptBannerProvider> */}
+      {/* {showSearchModal && (
         <ApplicationModal title="Search" size="large" onRequestClose={() => { setShowSearchModal(false); }}>
           <div style={{ padding: '1rem' }}>
             <Button text="1" onClick={() => { conceptContext.updateData('1'); setShowSearchModal(false); }} />
@@ -78,6 +88,9 @@ const DemoApplicationNavigationLayout = () => {
           </div>
         </ApplicationModal>
       )} */}
+      {showAppSwitcherModal && (
+        <ApplicationSwitcherModal onRequestClose={() => { setShowAppSwitcherModal(false); }} />
+      )}
     </>
   );
 };

@@ -78,7 +78,7 @@ const Page1 = ({ onRequestClose }) => {
             target="_blank"
             style={{ padding: '.5rem' }}
           >
-            New Tab target
+            New Tab
           </Hyperlink>
           <Hyperlink
             href={`${chartURL}?${index}`}
