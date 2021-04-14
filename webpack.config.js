@@ -21,6 +21,9 @@ const terraApplicationConfig = (env = {}) => ({
       TERRA_APPLICATION_LOCALE: JSON.stringify(env.defaultLocale || 'en'),
     }),
   ],
+  devServer: {
+    port: 8081,
+  },
 });
 
 const mergedConfig = (env, argv) => (

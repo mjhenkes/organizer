@@ -24,6 +24,9 @@ import DynamicHeadingCard from './content/DynamicHeadingCard';
 
 import Page2 from './Page2';
 
+// const chartURL = 'http://localhost:8080/';
+const chartURL = '/chart/';
+
 const propTypes = {
   onRequestClose: PropTypes.func,
 };
@@ -64,19 +67,36 @@ const Page1 = ({ onRequestClose }) => {
       patients.push((
         <Item>
           <Hyperlink
-            href="https://www.google.com"
+            href={`${chartURL}?${index}`}
             style={{ padding: '.5rem' }}
           >
             {`Patient ${index}`}
           </Hyperlink>
           <Hyperlink
-            href="https://www.google.com"
+            href={`${chartURL}?${index}`}
+            variant="external"
+            target="_blank"
+            style={{ padding: '.5rem' }}
+          >
+            New Tab target
+          </Hyperlink>
+          <Hyperlink
+            href={`${chartURL}?${index}`}
             variant="external"
             target={`Patient ${index}`}
             rel="opener"
             style={{ padding: '.5rem' }}
           >
-            New Tab
+            New Tab unique target
+          </Hyperlink>
+          <Hyperlink
+            href={`${chartURL}?${index}`}
+            variant="external"
+            target="chart"
+            rel="opener"
+            style={{ padding: '.5rem' }}
+          >
+            New Tab same target
           </Hyperlink>
         </Item>
       ));
@@ -99,6 +119,7 @@ const Page1 = ({ onRequestClose }) => {
             { getPatients() }
           </List>
         </Card>
+        <PendingActionsCard />
       </CardLayout>
       {showPage2
         && <Page2 onRequestClose={() => { setShowPage2(false); }} />}
